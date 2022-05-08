@@ -23,7 +23,6 @@ h1 {
   flex-direction: row;
   flex-wrap: nowrap;
   border: 1px solid black;
-  justify-content: space-between;
 }
 
 .prev, .next {
@@ -33,12 +32,14 @@ h1 {
 .slide {
   flex-basis: 20%;
   height: 200px;
+  position: relative;
 }
 
 .slide img {
   height: 100%;
+  width: 100%;
 }
 
-.img1 {
-  
+.slide {
+  transition: 1s linear;
 }
