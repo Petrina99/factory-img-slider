@@ -40,13 +40,14 @@ $(document).ready(() => {
 
     let movingWidthSecond = imgSeven2.width();
 
-    movePicture(imgOne2, movingWidthSecond, 'img1', 'img2');
-    movePicture(imgTwo2, movingWidthSecond, 'img2', 'img3');
-    movePicture(imgThree2, movingWidthSecond, 'img3', 'img4');
-    movePicture(imgFour2, movingWidthSecond, 'img4', 'img5');
-    movePicture(imgFive2, movingWidthSecond, 'img5', 'img6');
-    movePicture(imgSix2, movingWidthSecond, 'img6', 'img7');
-    movePicture(imgSeven2, -totalWidthSecond, 'img7', 'img1');
+    movePicture(imgOne2, movingWidthSecond, 'img21', 'img22');
+    movePicture(imgTwo2, movingWidthSecond, 'img22', 'img23');
+    movePicture(imgThree2, movingWidthSecond, 'img23', 'img24');
+    movePicture(imgFour2, movingWidthSecond, 'img24', 'img25');
+    movePicture(imgFive2, movingWidthSecond, 'img25', 'img26');
+    movePicture(imgSix2, movingWidthSecond, 'img26', 'img27');
+    movePicture(imgSeven2, -totalWidthSecond, 'img27', 'img21');
+
   });
 });
 
