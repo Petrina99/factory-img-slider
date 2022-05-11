@@ -12,12 +12,12 @@ $(document).ready(() => {
     const imgSix = $('.img6');
     const imgSeven = $('.img7');
 
-    // determines how much the last one moves back
+    // determines how much the last one moves 
     let totalWidthFirst = imgOne.width() + imgTwo.width() + imgThree.width() + imgFour.width() + imgFive.width() + imgSix.width();
 
-    // determines how much all of them move forward except the last one
+    // determines how much all of them move except the last one
     let movingWidthFirst = imgSeven.width();
-
+    
     movePicture(imgOne, movingWidthFirst, 'img1', 'img2');
     movePicture(imgTwo, movingWidthFirst, 'img2', 'img3');
     movePicture(imgThree, movingWidthFirst, 'img3', 'img4');
