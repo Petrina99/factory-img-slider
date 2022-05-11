@@ -15,50 +15,17 @@ $(document).ready(() => {
     // determines how much the last one moves back
     let totalWidthFirst = imgOne.width() + imgTwo.width() + imgThree.width() + imgFour.width() + imgFive.width() + imgSix.width();
 
-    // how much all of them move forward
+    // determines how much all of them move forward except the last one
     let movingWidthFirst = imgSeven.width();
 
-    imgOne.animate({
-      left: `+=${movingWidthFirst}`
-    }, 400, "linear", () => {
-      imgOne.removeClass('img1').addClass('img2');
-    });
+    movePicture(imgOne, movingWidthFirst, 'img1', 'img2');
+    movePicture(imgTwo, movingWidthFirst, 'img2', 'img3');
+    movePicture(imgThree, movingWidthFirst, 'img3', 'img4');
+    movePicture(imgFour, movingWidthFirst, 'img4', 'img5');
+    movePicture(imgFive, movingWidthFirst, 'img5', 'img6');
+    movePicture(imgSix, movingWidthFirst, 'img6', 'img7');
+    movePicture(imgSeven, -totalWidthFirst, 'img7', 'img1');
 
-    imgTwo.animate({
-      left: `+=${movingWidthFirst}`
-    }, 400, "linear", () => {
-      imgTwo.removeClass('img2').addClass('img3');
-    });
-
-    imgThree.animate({
-      left: `+=${movingWidthFirst}`
-    }, 400, "linear", () => {
-      imgThree.removeClass('img3').addClass('img4');
-    });
-
-    imgFour.animate({
-      left: `+=${movingWidthFirst}`
-    }, 400, "linear", () => {
-      imgFour.removeClass('img4').addClass('img5');
-    });
-
-    imgFive.animate({
-      left: `+=${movingWidthFirst}`
-    }, 400, "linear", () => {
-      imgFive.removeClass('img5').addClass('img6');
-    });
-
-    imgSix.animate({
-      left: `+=${movingWidthFirst}`
-    }, 400, "linear", () => {
-      imgSix.removeClass('img6').addClass('img7');
-    });
-
-    imgSeven.animate({
-      left: `-=${totalWidthFirst}`
-    }, 400, "linear", () => {
-      imgSeven.removeClass('img7').addClass('img1');
-    });
 
     // second slider
     const imgOne2 = $('.img21');
@@ -73,46 +40,21 @@ $(document).ready(() => {
 
     let movingWidthSecond = imgSeven2.width();
 
-    imgOne2.animate({
-      left: `+=${movingWidthSecond}`
-    }, 400, "linear", () => {
-      imgOne2.removeClass('img21').addClass('img22');
-    });
-
-    imgTwo2.animate({
-      left: `+=${movingWidthSecond}`
-    }, 400, "linear", () => {
-      imgTwo2.removeClass('img22').addClass('img23');
-    });
-
-    imgThree2.animate({
-      left: `+=${movingWidthSecond}`
-    }, 400, "linear", () => {
-      imgThree2.removeClass('img23').addClass('img24');
-    });
-
-    imgFour2.animate({
-      left: `+=${movingWidthSecond}`
-    }, 400, "linear", () => {
-      imgFour2.removeClass('img24').addClass('img25');
-    });
-
-    imgFive2.animate({
-      left: `+=${movingWidthSecond}`
-    }, 400, "linear", () => {
-      imgFive2.removeClass('img25').addClass('img26');
-    });
-
-    imgSix2.animate({
-      left: `+=${movingWidthSecond}`
-    }, 400, "linear", () => {
-      imgSix2.removeClass('img26').addClass('img27');
-    });
-
-    imgSeven2.animate({
-      left: `-=${totalWidthSecond}`
-    }, 400, "linear", () => {
-      imgSeven2.removeClass('img27').addClass('img21');
-    });
+    movePicture(imgOne2, movingWidthSecond, 'img1', 'img2');
+    movePicture(imgTwo2, movingWidthSecond, 'img2', 'img3');
+    movePicture(imgThree2, movingWidthSecond, 'img3', 'img4');
+    movePicture(imgFour2, movingWidthSecond, 'img4', 'img5');
+    movePicture(imgFive2, movingWidthSecond, 'img5', 'img6');
+    movePicture(imgSix2, movingWidthSecond, 'img6', 'img7');
+    movePicture(imgSeven2, -totalWidthSecond, 'img7', 'img1');
   });
 });
+
+function movePicture(img, width, prevClass, nextClass) {
+
+  img.animate({
+    left: `+=${width}`
+  }, 400, "linear", () => {
+    img.removeClass(prevClass).addClass(nextClass);
+  })
+}
