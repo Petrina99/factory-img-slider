@@ -80,6 +80,10 @@ h1 {
   margin-top: 0px;
 }
 
+.slide1, .slide2 {
+  position: relative;
+}
+
 .slide1 img, .slide2 img {
   height: 200px;
   margin-right: 10px;
