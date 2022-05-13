@@ -1,5 +1,6 @@
 body { 	
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+  font-family: 'Source Sans Pro', sans-serif;
 	color: black;
   display: flex;
   background-color: #FFF;
@@ -8,39 +9,61 @@ body {
   padding: 0;
 }
 
-.paragraph {
-  float: right;
-  height: 200px;
-  left: -20%;
+h1 {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.upper-grid {
+  flex-basis: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.upper-grid .slider {
+  grid-column-start: 1;
+  grid-column-end: 9;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   position: relative;
+  left: -18%;
+  margin-bottom: 10px;
 }
 
-.paragraph p {
-  flex-basis: 100%;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 38px;
-  letter-spacing: -0.2px;
-  color: #134880;
-  margin-top: 0;
-}
-
-.prev, .next {
-  cursor: pointer;
-}
-
-.prev {
-  height: 60px;
-  width: 60px;
-  flex-basis: 100%;
-}
 .slide1, .slide2 {
   height: 200px;
-  position: relative;
 }
 
 .slide1 img, .slide2 img {
   height: 100%;
-  border-radius: 5px;
   margin-right: 10px;
+  border-radius: 5px;
 }
+
+.paragraph {
+  grid-column-start: 9;
+  grid-column-end: 13;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+
+.paragraph p{
+  flex-basis: 100%;
+  font-weight: bold;
+  font-size: 32px;
+  display: flex;
+  align-items: flex-end;
+  color: #134880;
+  margin: 0;
+}
+
+.lower-grid {
+  flex-basis: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) ;
+}
+
