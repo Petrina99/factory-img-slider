@@ -14,56 +14,127 @@ h1 {
   text-align: center;
 }
 
-.upper-grid {
+.grid-main {
   flex-basis: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
 
-.upper-grid .slider {
+.slider1 {
   grid-column-start: 1;
-  grid-column-end: 9;
+  grid-column-end: 10;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   position: relative;
-  left: -18%;
+  left: -10%;
   margin-bottom: 10px;
 }
 
-.slide1, .slide2 {
-  height: 200px;
+.slider2 {
+  grid-column-start: 1;
+  grid-column-end: 8;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: relative;
+  left: -20%;
+}
+
+.paragraph {
+  grid-column-start: 10;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.normal-text {
+  flex-basis: 60%;
+  margin: 0;
+  letter-spacing: -0.2px;
+  font-size: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bold-text {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.bold-text p {
+  flex-basis: 100%;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: bold;
+  color: #134880;
+  margin-bottom: 10px;
+  margin-top: 0px;
 }
 
 .slide1 img, .slide2 img {
-  height: 100%;
+  height: 200px;
   margin-right: 10px;
   border-radius: 5px;
 }
 
-.paragraph {
+.buttons {
   grid-column-start: 9;
-  grid-column-end: 13;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin-left: 20px;
+  grid-column-end: 10;
 }
 
-.paragraph p{
-  flex-basis: 100%;
-  font-weight: bold;
-  font-size: 32px;
-  display: flex;
-  align-items: flex-end;
-  color: #134880;
-  margin: 0;
+.prev, .next {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
 }
 
-.lower-grid {
-  flex-basis: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr) ;
+.prev {
+  background-image: url(../assets/arrow-gray-left.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #DDDDDD;
 }
 
+.next {
+  background-image: url(../assets/arrow-gray-right.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #DDDDDD;
+}
+
+.prev:hover {
+  background-image: url(../assets/arrow-blue-left.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #134880;
+  transition: 0.5s linear;
+}
+
+.next:hover {
+  background-image: url(../assets/arrow-blue-right.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #134880;
+  transition: 0.5s linear;
+}
+
+.prev:active {
+  background-color: lightblue;
+  transition: 0.2s linear;
+}
+
+.next:active {
+  background-color: lightblue;
+  transition: 0.2s linear;
+}

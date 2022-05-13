@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
   $('.next').on('click', () => {
-
+    
     // had to make for both sliders because of the difference in width
     // first slider
     const imgOne = $('.img1');
