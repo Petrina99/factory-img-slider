@@ -2,6 +2,10 @@ $(document).ready(() => {
 
   $('.next').on('click', () => {
     
+    // disable clicking while the animation is running
+    // had to disable both of them
+    $('.next').css('pointer-events', 'none');
+    $('.prev').css('pointer-events', 'none');
     // had to make for both sliders because of the difference in width
     // first slider
     const imgOne = $('.img1');
@@ -26,7 +30,6 @@ $(document).ready(() => {
     movePicture(imgSix, movingWidthFirst, 'img6', 'img7');
     movePicture(imgSeven, -totalWidthFirst, 'img7', 'img1');
 
-
     // second slider
     const imgOne2 = $('.img21');
     const imgTwo2 = $('.img22');
@@ -47,12 +50,13 @@ $(document).ready(() => {
     movePicture(imgFive2, movingWidthSecond, 'img25', 'img26');
     movePicture(imgSix2, movingWidthSecond, 'img26', 'img27');
     movePicture(imgSeven2, -totalWidthSecond, 'img27', 'img21');
-
   });
 
   $('.prev').on('click', () => {
 
-    // identical as .next but other direction and it moves by the width of the first picture not the last
+    $('.prev').css('pointer-events', 'none');
+    $('.next').css('pointer-events', 'none');
+    // same as .next but it moves in the other direction and by the width of the first picture not the last
     const imgOne = $('.img1');
     const imgTwo = $('.img2');
     const imgThree = $('.img3');
@@ -97,9 +101,12 @@ $(document).ready(() => {
 
 function movePicture(img, width, prevClass, nextClass) {
 
+  // move the divs, remove old class and add a new one, enable buttons
   img.animate({
     left: `+=${width}`
-  }, 400, "linear", () => {
+  }, 350, "swing", () => {
     img.removeClass(prevClass).addClass(nextClass);
+    $('.next').css('pointer-events', 'auto');
+    $('.prev').css('pointer-events', 'auto');
   })
 }
