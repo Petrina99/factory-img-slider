@@ -1,55 +1,47 @@
 $(document).ready(() => {
 
+  let topImages = $('.slide1').toArray();
+  let botImages = $('.slide2').toArray();
+
   $('.next').on('click', () => {
     
     // disable clicking while the animation is running
-    // had to disable both of them
     $('.next').css('pointer-events', 'none');
     $('.prev').css('pointer-events', 'none');
+
     // had to make for both sliders because of the difference in width
-    // first slider
-    const imgOne = $('.img1');
-    const imgTwo = $('.img2');
-    const imgThree = $('.img3');
-    const imgFour = $('.img4');
-    const imgFive = $('.img5');
-    const imgSix = $('.img6');
-    const imgSeven = $('.img7');
 
-    // determines how much the last one moves 
-    let totalWidthFirst = imgOne.width() + imgTwo.width() + imgThree.width() + imgFour.width() + imgFive.width() + imgSix.width();
+    let totalWidthTop = 0;
 
-    // determines how much all of them move except the last one
-    let movingWidthFirst = imgSeven.width();
-    
-    movePicture(imgOne, movingWidthFirst, 'img1', 'img2');
-    movePicture(imgTwo, movingWidthFirst, 'img2', 'img3');
-    movePicture(imgThree, movingWidthFirst, 'img3', 'img4');
-    movePicture(imgFour, movingWidthFirst, 'img4', 'img5');
-    movePicture(imgFive, movingWidthFirst, 'img5', 'img6');
-    movePicture(imgSix, movingWidthFirst, 'img6', 'img7');
-    movePicture(imgSeven, -totalWidthFirst, 'img7', 'img1');
+    let movingWidthTop = $(topImages).last().width();
 
-    // second slider
-    const imgOne2 = $('.img21');
-    const imgTwo2 = $('.img22');
-    const imgThree2 = $('.img23');
-    const imgFour2 = $('.img24');
-    const imgFive2 = $('.img25');
-    const imgSix2 = $('.img26');
-    const imgSeven2 = $('.img27');
+    for (let i = 0; i < topImages.length - 1; i++) {
+      let currentImage = topImages[i];
 
-    let totalWidthSecond = imgOne2.width() + imgTwo2.width() + imgThree2.width() + imgFour2.width() + imgFive2.width() + imgSix2.width();
+      totalWidthTop += $(currentImage).width();
 
-    let movingWidthSecond = imgSeven2.width();
+      movePicture($(currentImage), movingWidthTop);
+    }
 
-    movePicture(imgOne2, movingWidthSecond, 'img21', 'img22');
-    movePicture(imgTwo2, movingWidthSecond, 'img22', 'img23');
-    movePicture(imgThree2, movingWidthSecond, 'img23', 'img24');
-    movePicture(imgFour2, movingWidthSecond, 'img24', 'img25');
-    movePicture(imgFive2, movingWidthSecond, 'img25', 'img26');
-    movePicture(imgSix2, movingWidthSecond, 'img26', 'img27');
-    movePicture(imgSeven2, -totalWidthSecond, 'img27', 'img21');
+    movePicture($(topImages).last(), -totalWidthTop);
+
+    topImages = createNewArray(topImages, 1);
+
+    let totalWidthBot = 0;
+
+    let movingWidthBot = $(botImages).last().width();
+
+    for (let i = 0; i < botImages.length - 1; i++) {
+      let currentImage = botImages[i];
+
+      totalWidthBot += $(currentImage).width();
+
+      movePicture($(currentImage), movingWidthBot);
+    }
+
+    movePicture($(botImages).last(), -totalWidthBot);
+
+    botImages = createNewArray(botImages, 1);
   });
 
   $('.prev').on('click', () => {
@@ -57,56 +49,69 @@ $(document).ready(() => {
     $('.prev').css('pointer-events', 'none');
     $('.next').css('pointer-events', 'none');
     // same as .next but it moves in the other direction and by the width of the first picture not the last
-    const imgOne = $('.img1');
-    const imgTwo = $('.img2');
-    const imgThree = $('.img3');
-    const imgFour = $('.img4');
-    const imgFive = $('.img5');
-    const imgSix = $('.img6');
-    const imgSeven = $('.img7');
     
-    let totalWidthFirst = imgTwo.width() + imgThree.width() + imgFour.width() + imgFive.width() + imgSix.width() + imgSeven.width();
+    let totalWidthTop = 0;
 
-    let movingWidthFirst = imgOne.width();
+    let movingWidthTop = $(topImages).first().width();
 
-    movePicture(imgOne, totalWidthFirst, 'img1', 'img7');
-    movePicture(imgTwo, -movingWidthFirst, 'img2', 'img1');
-    movePicture(imgThree, -movingWidthFirst, 'img3', 'img2');
-    movePicture(imgFour, -movingWidthFirst, 'img4', 'img3');
-    movePicture(imgFive, -movingWidthFirst, 'img5', 'img4');
-    movePicture(imgSix, -movingWidthFirst, 'img6', 'img5');
-    movePicture(imgSeven, -movingWidthFirst, 'img7', 'img6');
+    for (let i = 1; i < topImages.length; i++) {
+      let currentImage = topImages[i];
 
-    const imgOne2 = $('.img21');
-    const imgTwo2 = $('.img22');
-    const imgThree2 = $('.img23');
-    const imgFour2 = $('.img24');
-    const imgFive2 = $('.img25');
-    const imgSix2 = $('.img26');
-    const imgSeven2 = $('.img27');
+      totalWidthTop += $(currentImage).width();
 
-    let totalWidthSecond = imgTwo2.width() + imgThree2.width() + imgFour2.width() + imgFive2.width() + imgSix2.width() + imgSeven2.width();
+      movePicture($(currentImage), -movingWidthTop);
+    }
 
-    let movingWidthSecond = imgOne2.width();
+    movePicture($(topImages).first(), totalWidthTop);
 
-    movePicture(imgOne2, totalWidthSecond, 'img21', 'img27');
-    movePicture(imgTwo2, -movingWidthSecond, 'img22', 'img21');
-    movePicture(imgThree2, -movingWidthSecond, 'img23', 'img22');
-    movePicture(imgFour2, -movingWidthSecond, 'img24', 'img23');
-    movePicture(imgFive2, -movingWidthSecond, 'img25', 'img24');
-    movePicture(imgSix2, -movingWidthSecond, 'img26', 'img25');
-    movePicture(imgSeven2, -movingWidthSecond, 'img27', 'img26');
+    topImages = createNewArray(topImages, 0);
+
+    let totalWidthBot = 0;
+
+    let movingWidthBot = $(botImages).first().width();
+
+    for (let i = 1; i < botImages.length; i++) {
+      let currentImage = botImages[i];
+
+      totalWidthBot += $(currentImage).width();
+
+      movePicture($(currentImage), -movingWidthBot);
+    }
+
+    movePicture($(botImages).first(), totalWidthBot);
+
+    botImages = createNewArray(botImages, 0);
   });
 });
 
-function movePicture(img, width, prevClass, nextClass) {
+function movePicture(img, width) {
 
   // move the divs, remove old class and add a new one, enable buttons
   img.animate({
-    left: `+=${width}`
+    left: `+=${width}`,
   }, 350, "swing", () => {
-    img.removeClass(prevClass).addClass(nextClass);
     $('.next').css('pointer-events', 'auto');
     $('.prev').css('pointer-events', 'auto');
   })
+}
+
+function createNewArray(currentArray, direction) {
+  let newArray = [];
+
+  if (direction == 1) {
+    newArray[0] = currentArray.pop();
+
+    for (i = 1; i <= currentArray.length; i++) {
+      newArray[i] = currentArray[i - 1];
+    }
+  }
+  else {
+    for (i = 0; i < currentArray.length - 1; i++) {
+      newArray[i] = currentArray[i + 1];
+    }
+
+    newArray[currentArray.length - 1] = currentArray[0];
+  }
+
+  return newArray;
 }
