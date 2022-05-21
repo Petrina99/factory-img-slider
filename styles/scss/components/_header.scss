@@ -1,0 +1,25 @@
+header {
+  
+  grid-column: span 12;
+  @include set-grid(12, 60px, 20px);
+  margin-bottom: 60px;
+
+  .empty-div-header {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    height: 100px;
+    background-color: $background-color-secondary;
+    border-radius: 0px 0px 5px 5px;
+  }
+
+  .text-div-header {
+    grid-column-start: 5;
+    grid-column-end: 13;
+    height: 100px;
+    background-color: $background-color-secondary;
+    @include set-font($font-secondary, 15px, #FFF, 18px);
+    padding: 40px 80px;
+    font-weight: bold;
+    border-radius: 0px 0px 5px 5px;
+  }
+}

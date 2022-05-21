@@ -1,0 +1,30 @@
+@import 'base/_typography';
+@import 'base/colors';
+@import 'utilities/mixins';
+@import 'components/header';
+@import 'components/textArticle';
+@import 'components/footer';
+@import 'components/sliders';
+@import 'components/buttons';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include set-flex(wrap, row);
+  justify-content: center;
+  background-color: $background-color-primary;
+}
+
+.container {
+  @include set-grid(12, 60px, 20px);
+  max-width: 940px;
+}
+
+main {
+  grid-column: span 12;
+  @include set-grid(12, 60px, 20px);
+}

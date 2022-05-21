@@ -1,0 +1,19 @@
+.text-article {
+  grid-column: span 4;
+  grid-row: span 2;
+
+  div:first-of-type {
+    margin-bottom: 20px;
+
+    h1 {
+      @include set-font($font-primary, 32px, $primary-color-font, 38px);
+      letter-spacing: -0.2px;
+      font-weight: 900;
+    }
+  }
+  
+  p {
+    @include set-font($font-primary, 18px, $secondary-color-font, 26px);
+    letter-spacing: -0.2px;
+  }
+}

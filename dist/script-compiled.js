@@ -1,8 +1,10 @@
 "use strict";
 
 $(document).ready(function () {
-  var topImages = $('.slide1').toArray();
-  var botImages = $('.slide2').toArray();
+  //./node_modules/@babel/cli/bin/babel.js js/script.js --out-file dist/script-compiled.js
+  // sass --watch styles/scss/style.scss:styles/css/style.css
+  var topImages = $('.slide-top').toArray();
+  var botImages = $('.slide-bottom').toArray();
   $('.next').on('click', function () {
     // disable clicking while the animation is running
     $('.next').css('pointer-events', 'none');
@@ -11,8 +13,8 @@ $(document).ready(function () {
     var totalWidthTop = 0;
     var movingWidthTop = $(topImages).last().width();
 
-    for (var _i = 0; _i < topImages.length - 1; _i++) {
-      var currentImage = topImages[_i];
+    for (var i = 0; i < topImages.length - 1; i++) {
+      var currentImage = topImages[i];
       totalWidthTop += $(currentImage).width();
       movePicture($(currentImage), movingWidthTop);
     }
@@ -22,8 +24,8 @@ $(document).ready(function () {
     var totalWidthBot = 0;
     var movingWidthBot = $(botImages).last().width();
 
-    for (var _i2 = 0; _i2 < botImages.length - 1; _i2++) {
-      var _currentImage = botImages[_i2];
+    for (var _i = 0; _i < botImages.length - 1; _i++) {
+      var _currentImage = botImages[_i];
       totalWidthBot += $(_currentImage).width();
       movePicture($(_currentImage), movingWidthBot);
     }
@@ -38,8 +40,8 @@ $(document).ready(function () {
     var totalWidthTop = 0;
     var movingWidthTop = $(topImages).first().width();
 
-    for (var _i3 = 1; _i3 < topImages.length; _i3++) {
-      var currentImage = topImages[_i3];
+    for (var i = 1; i < topImages.length; i++) {
+      var currentImage = topImages[i];
       totalWidthTop += $(currentImage).width();
       movePicture($(currentImage), -movingWidthTop);
     }
@@ -49,8 +51,8 @@ $(document).ready(function () {
     var totalWidthBot = 0;
     var movingWidthBot = $(botImages).first().width();
 
-    for (var _i4 = 1; _i4 < botImages.length; _i4++) {
-      var _currentImage2 = botImages[_i4];
+    for (var _i2 = 1; _i2 < botImages.length; _i2++) {
+      var _currentImage2 = botImages[_i2];
       totalWidthBot += $(_currentImage2).width();
       movePicture($(_currentImage2), -movingWidthBot);
     }
@@ -72,11 +74,12 @@ function movePicture(img, width) {
 
 function createNewArray(currentArray, direction) {
   var newArray = [];
+  var i; // direction 1 is forward, 0 is back
 
   if (direction == 1) {
     newArray[0] = currentArray.pop();
 
-    for (var i = 1; i <= currentArray.length; i++) {
+    for (i = 1; i <= currentArray.length; i++) {
       newArray[i] = currentArray[i - 1];
     }
   } else {

@@ -1,0 +1,10 @@
+footer {
+  grid-column: span 12;
+  height: 100px;
+  background: #DDDDDD;
+  border-radius: 5px 5px 0px 0px;
+  @include set-font($font-secondary, 15px, #FFF, 18px);
+  font-weight: bold;
+  padding: 42px 82px;
+  margin-top: 60px;
+}

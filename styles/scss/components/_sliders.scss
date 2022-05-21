@@ -1,0 +1,38 @@
+.slider-top {
+  grid-column-start: 1;
+  grid-column-end: 9;
+  position: relative;
+  @include set-flex(nowrap, row);
+  left: -880px;
+  margin-bottom: 10px;
+
+  .slide-top {
+    position: relative;
+    height: 200px;
+
+    img {
+      height: 100%;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.slider-bottom {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  position: relative;
+  @include set-flex(nowrap, row);
+  left: -900px;
+
+  .slide-bottom {
+    position: relative;
+    height: 200px;
+
+    img {
+      height: 100%;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+  }
+}

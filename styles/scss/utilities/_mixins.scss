@@ -1,0 +1,25 @@
+@mixin set-font($font-style, $font-size, $color, $line-h) {
+  font-family: $font-style;
+  font-size: $font-size;
+  color: $color;
+  line-height: $line-h;
+}
+
+@mixin set-grid($number-of-cols, $size, $gap) {
+  display: grid;
+  grid-template-columns: repeat($number-of-cols, $size);
+  grid-column-gap: $gap;
+}
+
+@mixin set-flex($wrap, $direction) {
+  display: flex;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+}
+
+@mixin set-image($color, $url, $repeat, $position) {
+  background-color: $color;
+  background-image: url($url);
+  background-repeat: $repeat;
+  background-position: $position;
+}

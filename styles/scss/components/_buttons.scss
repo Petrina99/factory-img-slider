@@ -1,0 +1,39 @@
+.buttons {
+  grid-column-start: 8;
+  grid-column-end: 9;
+  display: grid;
+  grid-template-rows: 60px 60px;
+  grid-row-gap: 10px;
+
+  button {
+    cursor: pointer;
+    border: 1px solid $background-color-secondary;
+    border-radius: 5px;
+
+    &:hover {
+      border: 1px solid $primary-color-font;
+      transition: 0.3s linear;
+    }
+
+    &:active {
+      background-color: lighten($primary-color-font, 30%);
+      transition: 0.3s linear;
+    }
+  }
+
+  .prev {
+    @include set-image($background-color-primary, "../../../assets/arrow-gray-left.png", no-repeat, center);
+    
+    &:hover {
+      background-image: url(../../../assets/arrow-blue-left.png);
+    }
+  }
+
+  .next {
+    @include set-image($background-color-primary, "../../../assets/arrow-gray-right.png", no-repeat, center);
+
+    &:hover {
+      background-image: url(../../../assets/arrow-blue-right.png);
+    }
+  }
+}

@@ -1,7 +1,10 @@
 $(document).ready(() => {
 
-  let topImages = $('.slide1').toArray();
-  let botImages = $('.slide2').toArray();
+  //./node_modules/@babel/cli/bin/babel.js js/script.js --out-file dist/script-compiled.js
+  // sass --watch styles/scss/style.scss:styles/css/style.css
+  
+  let topImages = $('.slide-top').toArray();
+  let botImages = $('.slide-bottom').toArray();
 
   $('.next').on('click', () => {
     
@@ -98,6 +101,8 @@ function movePicture(img, width) {
 function createNewArray(currentArray, direction) {
   let newArray = [];
 
+  let i;
+  // direction 1 is forward, 0 is back
   if (direction == 1) {
     newArray[0] = currentArray.pop();
 
