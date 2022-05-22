@@ -19,7 +19,7 @@ $(document).ready(function () {
       movePicture($(currentImage), movingWidthTop);
     }
 
-    movePicture($(topImages).last(), -totalWidthTop);
+    moveLastPicture($(topImages).last(), -totalWidthTop, movingWidthTop);
     topImages = createNewArray(topImages, 1);
     var totalWidthBot = 0;
     var movingWidthBot = $(botImages).last().width();
@@ -30,7 +30,7 @@ $(document).ready(function () {
       movePicture($(_currentImage), movingWidthBot);
     }
 
-    movePicture($(botImages).last(), -totalWidthBot);
+    moveLastPicture($(botImages).last(), -totalWidthBot, movingWidthBot);
     botImages = createNewArray(botImages, 1);
   });
   $('.prev').on('click', function () {
@@ -44,9 +44,12 @@ $(document).ready(function () {
       var currentImage = topImages[i];
       totalWidthTop += $(currentImage).width();
       movePicture($(currentImage), -movingWidthTop);
-    }
+    } // making it invisible for the animation
 
-    movePicture($(topImages).first(), totalWidthTop);
+
+    $(topImages).first().addClass('invisible');
+    $(topImages).first().css('opacity', '0');
+    moveFirstPicture($(topImages).first(), totalWidthTop);
     topImages = createNewArray(topImages, 0);
     var totalWidthBot = 0;
     var movingWidthBot = $(botImages).first().width();
@@ -57,24 +60,51 @@ $(document).ready(function () {
       movePicture($(_currentImage2), -movingWidthBot);
     }
 
-    movePicture($(botImages).first(), totalWidthBot);
+    $(botImages).first().addClass('invisible');
+    $(botImages).first().css('opacity', '0');
+    moveFirstPicture($(botImages).first(), totalWidthBot);
     botImages = createNewArray(botImages, 0);
   });
 });
 
 function movePicture(img, width) {
-  // move the divs, remove old class and add a new one, enable buttons
+  // move image and enable buttons
   img.animate({
     left: "+=".concat(width)
-  }, 350, "swing", function () {
+  }, 400, "swing", function () {
     $('.next').css('pointer-events', 'auto');
     $('.prev').css('pointer-events', 'auto');
   });
 }
 
+function moveLastPicture(img, moveWidth, widthOfImg) {
+  img.animate({
+    left: "+=".concat(widthOfImg)
+  }, 400, "swing", function () {
+    img.css('opacity', '0');
+    img.animate({
+      left: "+=".concat(moveWidth - widthOfImg)
+    }, 1, function () {
+      img.css('opacity', '1');
+    });
+  });
+}
+
+function moveFirstPicture(img, moveWidth) {
+  img.delay(400).animate({
+    left: "+=".concat(moveWidth)
+  }, 1, "linear", function () {
+    img.animate({
+      opacity: 1
+    }, 1, "swing", function () {
+      img.removeClass('invisible');
+    });
+  });
+}
+
 function createNewArray(currentArray, direction) {
   var newArray = [];
-  var i; // direction 1 is forward, 0 is back
+  var i; // 1 is forward, 0 is back
 
   if (direction == 1) {
     newArray[0] = currentArray.pop();
