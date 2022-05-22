@@ -20,11 +20,13 @@ body {
 }
 
 .container {
-  @include set-grid(12, 60px, 20px);
+  @include set-grid(60px, 20px);
   max-width: 940px;
 }
 
 main {
   grid-column: span 12;
-  @include set-grid(12, 60px, 20px);
+  display: grid;
+  @include set-grid(60px, 20px);
+  background-color: $background-color-primary;
 }

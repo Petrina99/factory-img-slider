@@ -26,7 +26,7 @@ $(document).ready(() => {
       movePicture($(currentImage), movingWidthTop);
     }
 
-    movePicture($(topImages).last(), -totalWidthTop);
+    moveLastPicture($(topImages).last(), -totalWidthTop, movingWidthTop);
 
     topImages = createNewArray(topImages, 1);
 
@@ -42,7 +42,7 @@ $(document).ready(() => {
       movePicture($(currentImage), movingWidthBot);
     }
 
-    movePicture($(botImages).last(), -totalWidthBot);
+    moveLastPicture($(botImages).last(), -totalWidthBot, movingWidthBot);
 
     botImages = createNewArray(botImages, 1);
   });
@@ -52,7 +52,7 @@ $(document).ready(() => {
     $('.prev').css('pointer-events', 'none');
     $('.next').css('pointer-events', 'none');
     // same as .next but it moves in the other direction and by the width of the first picture not the last
-    
+
     let totalWidthTop = 0;
 
     let movingWidthTop = $(topImages).first().width();
@@ -65,7 +65,7 @@ $(document).ready(() => {
       movePicture($(currentImage), -movingWidthTop);
     }
 
-    movePicture($(topImages).first(), totalWidthTop);
+    moveFirstPicture($(topImages).first(), totalWidthTop);
 
     topImages = createNewArray(topImages, 0);
 
@@ -92,10 +92,38 @@ function movePicture(img, width) {
   // move the divs, remove old class and add a new one, enable buttons
   img.animate({
     left: `+=${width}`,
-  }, 350, "swing", () => {
+  }, 500, "swing", () => {
     $('.next').css('pointer-events', 'auto');
     $('.prev').css('pointer-events', 'auto');
   })
+}
+
+function moveLastPicture(img, moveWidth, widthOfImg) {
+
+  img.animate({
+    left: `+=${widthOfImg}`,
+  }, 500, "swing", () => {
+    img.css('opacity', '0');
+    img.animate({
+      left: `+=${moveWidth - widthOfImg}`,
+    }, 1, () => {
+      img.css('opacity', '1');
+    })
+  });
+}
+
+function moveFirstPicture(img, moveWidth) {
+
+  
+  img.animate({
+    left: `+=${moveWidth}`,
+    opacity: 0
+  }, 500, "swing", () => {
+    img.animate({
+      opacity: 1
+    }, 500, "swing");
+  });
+
 }
 
 function createNewArray(currentArray, direction) {

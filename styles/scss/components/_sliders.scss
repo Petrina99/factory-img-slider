@@ -1,6 +1,6 @@
 .slider-top {
   grid-column-start: 1;
-  grid-column-end: 9;
+  grid-column-end: 16;
   position: relative;
   @include set-flex(nowrap, row);
   left: -880px;
@@ -9,6 +9,7 @@
   .slide-top {
     position: relative;
     height: 200px;
+    transition: opacity 500ms linear;
 
     img {
       height: 100%;
@@ -20,7 +21,7 @@
 
 .slider-bottom {
   grid-column-start: 1;
-  grid-column-end: 7;
+  grid-column-end: 12;
   position: relative;
   @include set-flex(nowrap, row);
   left: -900px;
@@ -28,11 +29,13 @@
   .slide-bottom {
     position: relative;
     height: 200px;
+    transition: opacity 500ms linear;
 
     img {
       height: 100%;
       border-radius: 5px;
       margin-right: 10px;
+      transform: scale(1);
     }
   }
 }

@@ -1,9 +1,18 @@
 .text-article {
-  grid-column: span 4;
+  grid-column-start: 16;
+  grid-column-end: 24;
   grid-row: span 2;
+  z-index: 10;
+  background-color: $background-color-primary;
+  display: grid;
+  grid-template-columns: 20px 60px 20px 60px 20px 60px 20px 60px;
+  grid-template-rows: 120px 20px 156px;
 
   div:first-of-type {
-    margin-bottom: 20px;
+    grid-column-start: 2;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 2;
 
     h1 {
       @include set-font($font-primary, 32px, $primary-color-font, 38px);
@@ -12,8 +21,16 @@
     }
   }
   
-  p {
-    @include set-font($font-primary, 18px, $secondary-color-font, 26px);
-    letter-spacing: -0.2px;
+  div:last-of-type {
+    grid-column-start: 2;
+    grid-column-end: 9;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+    p {
+      @include set-font($font-primary, 18px, $secondary-color-font, 26px);
+      letter-spacing: -0.2px;
+    }
   }
+ 
 }

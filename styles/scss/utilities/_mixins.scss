@@ -5,10 +5,9 @@
   line-height: $line-h;
 }
 
-@mixin set-grid($number-of-cols, $size, $gap) {
+@mixin set-grid($size, $gap) {
   display: grid;
-  grid-template-columns: repeat($number-of-cols, $size);
-  grid-column-gap: $gap;
+  grid-template-columns: $size $gap $size $gap $size $gap $size $gap $size $gap $size $gap $size $gap $size $gap $size $gap $size $gap $size $gap $size;
 }
 
 @mixin set-flex($wrap, $direction) {
@@ -22,4 +21,14 @@
   background-image: url($url);
   background-repeat: $repeat;
   background-position: $position;
+}
+
+@mixin animate($name, $duration, $method) {
+  animation: $name $duration $method;
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
 }
