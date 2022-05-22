@@ -124,7 +124,7 @@ footer {
   opacity: 0;
 }
 
-.buttons {
+.button-article {
   grid-column-start: 12;
   grid-column-end: 16;
   display: grid;
@@ -133,38 +133,37 @@ footer {
   z-index: 10;
   background-color: #FFF;
 }
-.buttons button {
+.button-article button {
   cursor: pointer;
   border: 1px solid #DDDDDD;
   border-radius: 5px;
   grid-column-start: 4;
+  transition: 0.2s linear;
 }
-.buttons button:hover {
+.button-article button:hover {
   border: 1px solid #134880;
-  transition: 0.3s linear;
 }
-.buttons button:active {
-  background-color: #4894e4;
-  transition: 0.3s linear;
+.button-article button:active {
+  background-color: #75aeea;
 }
-.buttons .prev {
+.button-article .prev {
   background-color: #FFF;
   background-image: url("../../../assets/arrow-gray-left.png");
   background-repeat: no-repeat;
   background-position: center;
   grid-row-start: 1;
 }
-.buttons .prev:hover {
+.button-article .prev:hover {
   background-image: url(../../../assets/arrow-blue-left.png);
 }
-.buttons .next {
+.button-article .next {
   background-color: #FFF;
   background-image: url("../../../assets/arrow-gray-right.png");
   background-repeat: no-repeat;
   background-position: center;
   grid-row-start: 3;
 }
-.buttons .next:hover {
+.button-article .next:hover {
   background-image: url(../../../assets/arrow-blue-right.png);
 }
 

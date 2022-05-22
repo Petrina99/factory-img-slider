@@ -123,7 +123,7 @@ function moveFirstPicture(img, moveWidth) {
   }, 1, "linear", () => {
     img.animate({
       opacity: 1
-    }, 1, "swing", () => {
+    }, 300, "linear", () => {
       img.removeClass('invisible');
     });
   });

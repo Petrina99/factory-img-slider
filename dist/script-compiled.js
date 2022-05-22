@@ -96,7 +96,7 @@ function moveFirstPicture(img, moveWidth) {
   }, 1, "linear", function () {
     img.animate({
       opacity: 1
-    }, 1, "swing", function () {
+    }, 300, "swing", function () {
       img.removeClass('invisible');
     });
   });

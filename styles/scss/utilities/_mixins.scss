@@ -23,13 +23,3 @@
   background-repeat: $repeat;
   background-position: $position;
 }
-
-@mixin animate($name, $duration, $method) {
-  animation: $name $duration $method;
-}
-
-@mixin keyframes($name) {
-  @keyframes #{$name} {
-    @content;
-  }
-}
