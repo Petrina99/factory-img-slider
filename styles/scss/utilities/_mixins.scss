@@ -5,6 +5,7 @@
   line-height: $line-h;
 }
 
+// couldn't use repeat because i needed columns to pretend to be gaps
 @mixin set-grid($size, $gap) {
   display: grid;
   grid-template-columns: $size $gap $size $gap $size $gap $size $gap $size $gap $size $gap $size $gap $size $gap $size $gap $size $gap $size $gap $size;

@@ -65,6 +65,10 @@ $(document).ready(() => {
       movePicture($(currentImage), -movingWidthTop);
     }
 
+    // making it invisible for the animation
+    $(topImages).first().addClass('invisible');
+    $(topImages).first().css('opacity', '0');
+
     moveFirstPicture($(topImages).first(), totalWidthTop);
 
     topImages = createNewArray(topImages, 0);
@@ -81,7 +85,10 @@ $(document).ready(() => {
       movePicture($(currentImage), -movingWidthBot);
     }
 
-    movePicture($(botImages).first(), totalWidthBot);
+    $(botImages).first().addClass('invisible');
+    $(botImages).first().css('opacity', '0');
+
+    moveFirstPicture($(botImages).first(), totalWidthBot);
 
     botImages = createNewArray(botImages, 0);
   });
@@ -89,10 +96,10 @@ $(document).ready(() => {
 
 function movePicture(img, width) {
 
-  // move the divs, remove old class and add a new one, enable buttons
+  // move image and enable buttons
   img.animate({
     left: `+=${width}`,
-  }, 500, "swing", () => {
+  }, 400, "swing", () => {
     $('.next').css('pointer-events', 'auto');
     $('.prev').css('pointer-events', 'auto');
   })
@@ -102,7 +109,7 @@ function moveLastPicture(img, moveWidth, widthOfImg) {
 
   img.animate({
     left: `+=${widthOfImg}`,
-  }, 500, "swing", () => {
+  }, 400, "swing", () => {
     img.css('opacity', '0');
     img.animate({
       left: `+=${moveWidth - widthOfImg}`,
@@ -114,23 +121,22 @@ function moveLastPicture(img, moveWidth, widthOfImg) {
 
 function moveFirstPicture(img, moveWidth) {
 
-  
-  img.animate({
+  img.delay(400).animate({
     left: `+=${moveWidth}`,
-    opacity: 0
-  }, 500, "swing", () => {
+  }, 1, "linear", () => {
     img.animate({
       opacity: 1
-    }, 500, "swing");
+    }, 1, "swing", () => {
+      img.removeClass('invisible');
+    });
   });
-
 }
 
 function createNewArray(currentArray, direction) {
   let newArray = [];
 
   let i;
-  // direction 1 is forward, 0 is back
+  // 1 is forward, 0 is back
   if (direction == 1) {
     newArray[0] = currentArray.pop();
 

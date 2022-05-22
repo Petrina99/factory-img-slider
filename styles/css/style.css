@@ -120,6 +120,10 @@ footer {
   transform: scale(1);
 }
 
+.invisible {
+  opacity: 0;
+}
+
 .buttons {
   grid-column-start: 12;
   grid-column-end: 16;
