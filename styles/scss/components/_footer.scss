@@ -1,9 +1,9 @@
 footer {
   grid-column: span 24;
   height: 100px;
-  background: #DDDDDD;
+  background: $background-color-secondary;
   border-radius: 5px 5px 0px 0px;
-  @include set-font($font-secondary, 15px, #FFF, 18px);
+  @include set-font($font-secondary, 15px, $background-color-secondary, 18px);
   font-weight: bold;
   padding: 42px 82px;
   margin-top: 60px;

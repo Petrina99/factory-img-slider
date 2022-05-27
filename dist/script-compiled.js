@@ -1,8 +1,6 @@
 "use strict";
 
 $(document).ready(function () {
-  //./node_modules/@babel/cli/bin/babel.js js/script.js --out-file dist/script-compiled.js
-  // sass --watch styles/scss/style.scss:styles/css/style.css
   var topImages = $('.slide-top').toArray();
   var botImages = $('.slide-bottom').toArray();
   $('.next').on('click', function () {
@@ -96,7 +94,7 @@ function moveFirstPicture(img, moveWidth) {
   }, 1, "linear", function () {
     img.animate({
       opacity: 1
-    }, 300, "swing", function () {
+    }, 300, "linear", function () {
       img.removeClass('invisible');
     });
   });

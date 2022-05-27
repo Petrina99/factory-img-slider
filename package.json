@@ -4,7 +4,10 @@
   "description": "",
   "main": "js/script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "style-build": "sass --watch styles/scss/style.scss:styles/css/style.css",
+    "babel-build": "node ./node_modules/@babel/cli/bin/babel.js js/script.js --out-file dist/script-compiled.js"
+    
   },
   "repository": {
     "type": "git",
