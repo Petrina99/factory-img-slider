@@ -24,20 +24,20 @@
   }
 
   .prev {
-    @include set-image($background-color-primary, "../../../assets/arrow-gray-left.png", no-repeat, center);
+    @include set-image($background-color-primary, "../../assets/arrow-gray-left.png", no-repeat, center);
     grid-row-start: 1;
 
     &:hover {
-      background-image: url(../../../assets/arrow-blue-left.png);
+      background-image: url(../../assets/arrow-blue-left.png);
     }
   }
 
   .next {
-    @include set-image($background-color-primary, "../../../assets/arrow-gray-right.png", no-repeat, center);
+    @include set-image($background-color-primary, '../../assets/arrow-gray-right.png', no-repeat, center);
     grid-row-start: 3;
 
     &:hover {
-      background-image: url(../../../assets/arrow-blue-right.png);
+      background-image: url(../../assets/arrow-blue-right.png);
     }
   }
 }

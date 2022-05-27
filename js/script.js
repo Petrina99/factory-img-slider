@@ -96,7 +96,7 @@ function movePicture(img, width) {
   // move image and enable buttons
   img.animate({
     left: `+=${width}`,
-  }, 400, "swing")
+  }, 400, "swing");
 }
 
 function moveLastPicture(img, moveWidth, widthOfImg) {

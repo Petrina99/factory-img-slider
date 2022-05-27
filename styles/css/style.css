@@ -148,23 +148,23 @@ footer {
 }
 .button-article .prev {
   background-color: #FFF;
-  background-image: url("../../../assets/arrow-gray-left.png");
+  background-image: url("../../assets/arrow-gray-left.png");
   background-repeat: no-repeat;
   background-position: center;
   grid-row-start: 1;
 }
 .button-article .prev:hover {
-  background-image: url(../../../assets/arrow-blue-left.png);
+  background-image: url(../../assets/arrow-blue-left.png);
 }
 .button-article .next {
   background-color: #FFF;
-  background-image: url("../../../assets/arrow-gray-right.png");
+  background-image: url("../../assets/arrow-gray-right.png");
   background-repeat: no-repeat;
   background-position: center;
   grid-row-start: 3;
 }
 .button-article .next:hover {
-  background-image: url(../../../assets/arrow-blue-right.png);
+  background-image: url(../../assets/arrow-blue-right.png);
 }
 
 * {
