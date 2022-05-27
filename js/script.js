@@ -96,10 +96,7 @@ function movePicture(img, width) {
   // move image and enable buttons
   img.animate({
     left: `+=${width}`,
-  }, 400, "swing", () => {
-    $('.next').css('pointer-events', 'auto');
-    $('.prev').css('pointer-events', 'auto');
-  })
+  }, 400, "swing")
 }
 
 function moveLastPicture(img, moveWidth, widthOfImg) {
@@ -112,6 +109,8 @@ function moveLastPicture(img, moveWidth, widthOfImg) {
       left: `+=${moveWidth - widthOfImg}`,
     }, 1, () => {
       img.css('opacity', '1');
+      $('.next').css('pointer-events', 'auto');
+      $('.prev').css('pointer-events', 'auto');
     })
   });
 }
@@ -125,6 +124,8 @@ function moveFirstPicture(img, moveWidth) {
       opacity: 1
     }, 300, "linear", () => {
       img.removeClass('invisible');
+      $('.next').css('pointer-events', 'auto');
+      $('.prev').css('pointer-events', 'auto');
     });
   });
 }

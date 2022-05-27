@@ -69,10 +69,12 @@ function movePicture(img, width) {
   // move image and enable buttons
   img.animate({
     left: "+=".concat(width)
-  }, 400, "swing", function () {
-    $('.next').css('pointer-events', 'auto');
-    $('.prev').css('pointer-events', 'auto');
-  });
+  }, 400, "swing"
+  /*() => {
+  $('.next').css('pointer-events', 'auto');
+  $('.prev').css('pointer-events', 'auto');
+  }*/
+  );
 }
 
 function moveLastPicture(img, moveWidth, widthOfImg) {
@@ -96,6 +98,8 @@ function moveFirstPicture(img, moveWidth) {
       opacity: 1
     }, 300, "linear", function () {
       img.removeClass('invisible');
+      $('.next').css('pointer-events', 'auto');
+      $('.prev').css('pointer-events', 'auto');
     });
   });
 }
